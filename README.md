@@ -1,7 +1,5 @@
 Heart Disease Prediction using Machine Learning algorithms
 
-Ismael Reséndiz Robles Texas State University - CS 7317
-
 Contents
 
 1 Introduction 3 2 Related Work 3 3 Development Plan 3 4 Problem Description 3
@@ -88,7 +86,7 @@ As stated in previous sections, this project will consist in applying supervised
 
 1 logistic(z) = ![](Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.001.png)
 
-1 + exp(
+1 + exp(-z)
 - Decision Tree is another ML algorithm that offers great classification accuracy with less computational power. Decision Tree’s goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features.
 - Random Forest are made of many decision trees, on which there exist two key concepts that gives it the name random:
 - Random sampling of training data points when building trees
