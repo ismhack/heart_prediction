@@ -10,20 +10,20 @@ Contents
 [Development Plan](#development_plan)
 
 [Problem Description](#problem_description)
-  1. Data Set . . . . . .
-  1. Prediction Models . . . .
+  1. Data Set 
+  1. Prediction Models 
 
 [Results](#results)
 
-1. Logistic Regression . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
-1. Decision Tree . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
-1. Random Forest . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
-1. Artificial Neural Network (ANN) . . . . . . . . . . . . . . . . . . . . . . . . . 10
+1. Logistic Regression
+1. Decision Tree 
+1. Random Forest 
+1. Artificial Neural Network (ANN) 
 
 [Conclusions](#conclusions)
 
-1. Outcome comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
-1. Future Work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+1. Outcome comparison
+1. Future Work 
 
 [References](#references)
 
