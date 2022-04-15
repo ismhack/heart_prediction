@@ -134,3 +134,144 @@ Another metric commonly use is the Geometric mean (G-Mean), which seeks to balan
 
 p ![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.005.png?raw=true)
 
+The dataset is divided in the training set 80% and testing set 20%.
+
+1. Logistic Regression
+
+From the initial logistic regression formula, we can input all the features from the experiment to illustrate the model.
+
+1
+
+P (y = 1) = ![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.006.png?raw=true)
+Due to the number of features and the dataset size of this problem, the model is setup with the Limited-memory BFGS [1] algorithm as optimizer.
+
+The feature selection output from the logistic regression are in the below table:
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.007.png?raw=true)
+
+After creating the model and predicting the classification with the test data, the accuracy obtained in this model is 0.9 (90%). Below is the confusion matrix and statistics.
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.008.png?raw=true)
+
+Accuracy 21 + 33/21 + 33 + 2 +4 = 0.9|
+| - |
+|Sensitivity 21/21 + 4 = 0.84|
+|Specificity 33/33 + 2 = 0.94|
+Above results show the model operating with a threshold of 0.5 i.e. the model decides weather the patient has a heart disease if the outcome probability is greater than 0.5, else the patient is healthy. However, there might be an opportunity to calculate a better threshold for the model using the G-Mean metric. First I will plot the ROC curve to obtain the specificity and sensitivity rates. Then, I will use these rates to calculate each G-Mean and finally select the largest value. The results show the largest G-Mean is 0.937 and its
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.009.png?raw=true)
+
+corresponding threshold is found at 0.36. Testing the model against this threshold, the
+
+result show a small reduction on the false-negative count, however a unit increase in the false-positive count. Plotting the confusion matrix again with the new test results we obtain an accuracy of 0.916 (91%). A slight improvement from the initial model.
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.010.png?raw=true)
+
+2. Decision Tree
+
+I opted for decision trees due to their flexibility and compatibility in classification problems. Beginning to build a top-down tree, and deciding on which features to choose and what conditions to use for splitting, along with knowing when to stop. To avoid an arbitrarily tree growth, I will test few approaches to limit the tree depth size, number of samples to split a node and pruning.
+
+Initializing the tree and set the training data and no boundaries, result in a 8 level tree and 0.71(71%) classification accuracy. Additionally this model selected the below features as most important over all the nodes that are split on that feature.
+
+
+
+|Feature|Importance|
+| - | - |
+|Normal Thalassemia level (THAL0)|0.412|
+|Asymptomatic Chest Pain(CP4)|0.156|
+|Age (AGE)|0.086|
+|Maximum Heart Rate Acchived (THAL\_ACH)|0.079|
+|No major vessels (CA0)|0.070|
+Below is the complete tree and the model confusion matrix.
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.011.png?raw=true)
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.012.png?raw=true)
+
+Next, I will set random parameters to reduce the size if the tree and avoid overfiting. For this, I will use Cost complexity pruning, by plotting the leaves impurities vs the effective alphas, and then capture the most effective alpha value which produces a most accurate model.
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.013.png?raw=true)
+
+from the graph above, the best alpha value is 0.0084. This parameter when set in the model the accuracy improves to 0.83 (83%). Below is the pruned decision tree and the updated confusion matrix.
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.014.png?raw=true)
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.015.png?raw=true)
+
+3. Random Forest
+
+Since the decision tree performs well on training data but not on the testing data, this indicates that there are some level of overfiting,which can happen when the model memorizes the training data by fitting it closely. The problem is that the model learns not only the actual relationships in the training data, but also any noise that is present. Give that random forest combines several decision trees, trains each one differently and the final predictions are made by averaging the predictions of each individual tree, the expected accuracy should be higher than a single decision tree.
+
+initializing the random forest with a set of 100 estimators (decision tree classifiers) and fitting the training data, the accuracy obtained is 0.9(90%). Below is the confusion matrix and ROC curve.
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.016.png?raw=true)
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.017.png?raw=true)
+
+And the list of best features detected by the model are below
+
+
+
+|Feature||Importance|
+| - | :- | - |
+|Maximum Heart Rate achieved (THAL|<p>)</p><p>0</p>|0.118|
+|No major vessels (CA0)||0.102|
+|ST depression (OLD\_PEAK)||0.093|
+|Age (AGE)||0.088|
+|Cholestereol level (CHDL)||0.076|
+By adjusting the number of estimator to 150 and 200, the model accuracy slightly in- creases to 0.916 (91.6%).
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.010.png?raw=true)
+
+4. Artificial Neural Network (ANN)
+
+A feed forward network should be enough to receive all input features for this problem. Since the dataset contains some categorical variables, those columns need to be transformed. For example Chest Pain contains 4 values, then an additional 3 new columns are needed to map all possible values. After this transformation the number of columns are 25. Subsequently, a level of normalization can be applied to the data in order the help the neural network to process it faster.
+
+Afterwards, the model is constructed with a dense layer of 25 neurons to receive the input data, which activation formula is ReLU. Following by another dense layer to reduce the number of neurons to the mean value of total neurons (25 +1 ) = 13. Finally, a single neuron layer with Sigmoid activation to output the classification result from 0 to 1. the below picture depicts the model in a high level.
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.018.png?raw=true)
+
+As per literature, best option for binary classification are usually binary cross entropy, and the optimizer algorithm is Adam. Additionally, the model is set with a 8 batch size and 100 epochs.
+
+The accuracy obtained in the model is 0.916 (91.6%).
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.019.png?raw=true)
+
+![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.020.png?raw=true)
+
+6  Conclusions
+1. Outcome comparison
+
+The results obtained in this project show the performance in terms on classificationaccuracy on various machine learning algorithms. The Logistic regression model, Random Forest can perform as good as ANN with some parameter updates.
+
+Dataset is small and requires level of treatment or normalization before feeding it to the models. Below is a compare of the results from each model.
+
+
+
+|Model|Accuracy|Sensitivity|Specificity|
+| - | - | - | - |
+|Logistic Regression|0.9|0.84|0.94|
+|Logistic Regression (Hyper Parameter tweak)|0.916|0.884|0.941|
+|Decision Tree|0.71|0.821|0.625|
+|Decision Tree (Alpha tweak)|0.83|0.892|0.781|
+|Random Forest|0.90|0.851|0.939|
+|Random Forest (Forest Size tweak)|0.916|0.92|0.941|
+|ANN|0.916|0.875|0.888|
+2. Future Work
+- Search for optimization opportunities in the prediction models.
+- Test the models with different datasets.
+- Build a system that uses the prediction models to predict with user input data.
+
+References
+
+1. S. Ambesange, V. A, S. S, Venkateswaran, and Y. B S. Limited-Memory Broyden- Fletcher-Goldfarb-Shanno Algorithm in ML.NET.
+1. S. Ambesange, V. A, S. S, Venkateswaran, and Y. B S. Multiple heart diseases predic- tion using logistic regression with ensemble and hyper parameter tuning techniques. In 2020 Fourth World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4), pages 827–832, 2020.
+1. Lars Buitinck, Gilles Louppe, Mathieu Blondel, Fabian Pedregosa, Andreas Mueller, Olivier Grisel, Vlad Niculae, Peter Prettenhofer, Alexandre Gramfort, Jaques Grobler, Robert Layton, Jake VanderPlas, Arnaud Joly, Brian Holt, and Gaël Varoquaux. API design for machine learning software: experiences from the scikit-learn project. In ECML PKDD Workshop: Languages for Data Mining and Machine Learning, pages 108–122, 2013.
+1. CDC. Heart Disease Facts, 2020. https://www.cdc.gov/heartdisease/facts.htm.
+1. Francois Chollet. Keras is a deep learning API written in Python, running on top of the machine learning platform TensorFlow.
+1. UCI. University of Clevelant, 1988. https://archive.ics.uci.edu/ml/datasets/Heart+Disease.
+1. X. Wenxin. Heart disease prediction model based on model ensemble. In 2020 3rd International Conference on Artificial Intelligence and Big Data (ICAIBD), pages 195–
+
+199, 2020.
+12
+
