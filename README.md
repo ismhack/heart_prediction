@@ -3,10 +3,12 @@ Heart Disease Prediction using Machine Learning algorithms
 
 Contents
 
-1 Introduction 3 2 Related Work 3 3 Development Plan 3 4 Problem Description 3
-
-1. Data Set . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
-1. Prediction Models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+[Introduction](#introduction)
+2 Related Work
+3 Development Plan 
+4 Problem Description 3
+  1. Data Set . . . . . .
+  1. Prediction Models . . . .
 
 5 Results 5
 
@@ -19,7 +21,9 @@ Contents
 
 1. Outcome comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
 1. Future Work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
-1  Introduction
+
+
+1  Introduction <a name="introduction"></a>
 
 Based on the Center for Disease Control and Prevention, heart disease is the leading cause of death for men, women, and people of most racial and ethnic groups in the United States. One person dies every 36 seconds in the United States from cardiovascular disease. About 655,000 Americans die from heart disease each year, that’s 1 in every 4 deaths. Heart disease costs the United States about $219 billion each year from 2014 to 2015. This includes the cost of health care services, medicines, and lost productivity due to death [4].
 
