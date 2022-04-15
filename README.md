@@ -85,6 +85,52 @@ As stated in previous sections, this project will consist in applying supervised
 
 - Logistic Regression is a type of regression analysis in statistics used for prediction which uses a logistic function to produce an output between 0 and 1.
 
-1 logistic(z) = ![](REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.001.png)
+1 logistic(z) = ![alt text](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.001.png?raw=true)
 
 1 + exp(-z)
+
+- Decision Tree is another ML algorithm that offers great classification accuracy with less computational power. Decision Tree’s goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features.
+- Random Forest are made of many decision trees, on which there exist two key concepts that gives it the name random:
+- Random sampling of training data points when building trees
+- Random subsets of features considered when splitting nodes
+
+The idea is that by training each tree on different samples, although each tree might have high variance with respect to a particular set of the training data, overall, the entire forest will have lower variance but not at the cost of increasing the bias.
+
+- ArtificialNeural Network (ANN) can be use for patter recognition or data classification through a learning process. ANN can perform task that a linear classifier can not, the main advantage is the capacity to find complex relations among features, with high tolerance to data uncertainty, and predicting patterns with high accuracy.
+5  Results
+
+In this section, the result of each model will be evaluated by their accuracy, using the confusion matrix and statistically.
+
+By using the confusion matrix we can extract exactly the following counts:
+
+- True positive (TP): It’s the model outcome where correctly predicts the positive class.
+- True negative (TN): It’s the model outcome where correctly predicts the negative class.
+- False Positive (FP): It’s the model outcome where incorrectly predicts the positive class.
+- False Negative (FN): It’s the model outcome where incorrectly predicts the negative class.
+
+Given these metrics we can then calculate the model sensitivity and specificity as below:
+
+TP
+
+Sensitivity = ![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.002.png?raw=true)
+
+TP + FN
+
+| True positive rate.
+
+TN Specificity = ![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.003.png?raw=true)
+
+TN + FP
+
+| False positive rate.
+
+TP + TN Accuracy = ![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.004.png?raw=true)
+
+TP + TN + FP + FN
+
+An ROC curve (receiver operating characteristic curve) is a graph showing the perfor- mance of a classification model at all classification thresholds. This curve plots two param- eters: True Positive Rate. False Positive Rate and it’s useful to understand the trade-off in the true-positive and false-positive rate for different thresholds.
+
+Another metric commonly use is the Geometric mean (G-Mean), which seeks to balance the model between sensitivity and specificity. I will use G-Mean to evaluate the model classification balance.
+
+p ![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.005.png?raw=true)
+
