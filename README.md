@@ -4,26 +4,28 @@ Heart Disease Prediction using Machine Learning algorithms
 Contents
 
 [Introduction](#introduction)
+
 [Related Work](#related_work)
 
-[Development Plan]
+[Development Plan](#development_plan)
 
-Problem Description 3
+[Problem Description](#problem_description)
   1. Data Set . . . . . .
   1. Prediction Models . . . .
 
-
-Results 5
+[Results](#results)
 
 1. Logistic Regression . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
 1. Decision Tree . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
 1. Random Forest . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
 1. Artificial Neural Network (ANN) . . . . . . . . . . . . . . . . . . . . . . . . . 10
 
-Conclusions 
+[Conclusions](#conclusions)
 
 1. Outcome comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
 1. Future Work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+
+[References](#references)
 
 <a name="introduction"></a>
 Introduction 
@@ -41,7 +43,8 @@ Related Work
 
 There are articles that study the prediction of heart diseases using Artificial Neuronal Net- works (ANN), logistic regression, decision tree, ensemble model and others. In [7] the author proposes a prediction model based on ensemble, which combines three independent models Support Vector Machine (SVM), decision tree and ANN to improve the accuracy of each independent model to 87%. The authors in [2] discuss an approach to select the best features from the dataset using Principal Component Analysis (PCA), and apply them to a logistic regression algorithm on which tuning techniques have been implemented and resulted in 100% accuracy.
 
-3  Development Plan
+<a name="development_plan"></a>
+Development Plan
 
 The development plan of this project will consist of 3 phases.
 
@@ -61,7 +64,8 @@ Analyze and Report
 
 In the last phase, the results of the experiment will be analyzed: a detailed comparison of the algorithms implemented to show their effectiveness and derive their properties. Estimated completion date is Nov 18, 2020.
 
-4  Problem Description
+<a name="problem_description"></a>
+Problem Description
 
 ML algorithms can assist us in making decisions and predictions based on mathematical models. ML offers a variety of techniques and algorithms that have different properties and can work more adequately on one type of problem, but the same technique might not work on a different problem. In this project, I will be applying different ML approaches to the heart disease dataset, and compare them using evaluation metrics and classification accuracy.
 
@@ -105,7 +109,9 @@ As stated in previous sections, this project will consist in applying supervised
 The idea is that by training each tree on different samples, although each tree might have high variance with respect to a particular set of the training data, overall, the entire forest will have lower variance but not at the cost of increasing the bias.
 
 - ArtificialNeural Network (ANN) can be use for patter recognition or data classification through a learning process. ANN can perform task that a linear classifier can not, the main advantage is the capacity to find complex relations among features, with high tolerance to data uncertainty, and predicting patterns with high accuracy.
-5  Results
+
+<a name="results"></a>
+Results
 
 In this section, the result of each model will be evaluated by their accuracy, using the confusion matrix and statistically.
 
@@ -247,7 +253,8 @@ The accuracy obtained in the model is 0.916 (91.6%).
 
 ![](https://github.com/ismhack/heart_prediction/blob/master/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.020.png?raw=true)
 
-6  Conclusions
+<a name="conclusions"></a>
+Conclusions
 1. Outcome comparison
 
 The results obtained in this project show the performance in terms on classificationaccuracy on various machine learning algorithms. The Logistic regression model, Random Forest can perform as good as ANN with some parameter updates.
@@ -270,6 +277,7 @@ Dataset is small and requires level of treatment or normalization before feeding
 - Test the models with different datasets.
 - Build a system that uses the prediction models to predict with user input data.
 
+<a name="references"></a>
 References
 
 1. S. Ambesange, V. A, S. S, Venkateswaran, and Y. B S. Limited-Memory Broyden- Fletcher-Goldfarb-Shanno Algorithm in ML.NET.
