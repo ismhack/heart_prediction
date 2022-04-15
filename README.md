@@ -1,6 +1,5 @@
 Heart Disease Prediction using Machine Learning algorithms
 
-Ismael Reséndiz Robles Texas State University - CS 7317
 
 Contents
 
@@ -86,6 +85,6 @@ As stated in previous sections, this project will consist in applying supervised
 
 - Logistic Regression is a type of regression analysis in statistics used for prediction which uses a logistic function to produce an output between 0 and 1.
 
-1 logistic(z) = ![](/REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.001.png)
+1 logistic(z) = ![](REPORT/Aspose.Words.b5baeff1-1b8f-40f4-b98d-0d0119af3f93.001.png)
 
 1 + exp(-z)
